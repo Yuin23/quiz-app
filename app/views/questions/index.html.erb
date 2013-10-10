@@ -1,0 +1,11 @@
+<ol>
+	<% @questions.each do |question| %>
+	<li><%= question.query %>
+	<%= link_to 'Delete', quiz_question_path(@quiz,question),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+	<% end %>
+</ol>
+
+
+
