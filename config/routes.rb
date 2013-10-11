@@ -1,6 +1,6 @@
 QuizApp::Application.routes.draw do
 
-  get "questions/show"
+  # bad::: get "questions/show" #  creates questions_show_path (/questions/show)  questions#show
   resources :quizzes do
     resources :questions
   end

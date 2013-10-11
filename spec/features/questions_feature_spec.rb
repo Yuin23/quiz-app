@@ -8,17 +8,6 @@ describe "questions" do
 		@quiz.questions << Question.create(query: 'What is the country with population of 64 million')
 	end
 
-	describe "question page" do 
-
-		it 'should have a list of questions' do 
-			
-			#visit "/quizzes/#{@quiz.id}/questions/"
-			visit quiz_questions_path(@quiz)
-
-			expect(page).to have_content('What is the country with population of 64 million')
-		end
-	end 
-
 
  	describe "new question form" do 
 		it 'creates new questions' do 
@@ -35,9 +24,8 @@ describe "questions" do
 	describe "question page" do 
 
 		it 'can delete a question' do 
-			visit quiz_questions_path(@quiz)
+			visit quiz_path(@quiz)
 			expect(page).to have_content('What is the country with population of 64 million')
-
 			click_link 'Delete'
 			expect(page).not_to have_content('What is the country with population of 64 million')
 

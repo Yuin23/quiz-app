@@ -49,4 +49,14 @@ describe 'quizzes' do
 	end
 
 
+	describe "an individual quiz page" do 
+		it 'should have a list of questions' do 
+			@quiz = Quiz.create(title: 'My quiz')		
+			@quiz.questions << Question.create(query: 'What is the country with population of 64 million')
+			visit quiz_path(@quiz)
+			expect(page).to have_content('What is the country with population of 64 million')
+		end
+	end 
+
+
 end

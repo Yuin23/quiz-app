@@ -1,8 +1,4 @@
 class QuestionsController < ApplicationController
-	def index
-		@quiz = Quiz.find(params[:quiz_id])
-		@questions = @quiz.questions
-	end
 
 	def new
 		@quiz = Quiz.find(params[:quiz_id])
@@ -12,7 +8,7 @@ class QuestionsController < ApplicationController
 	def create
 		@quiz = Quiz.find(params[:quiz_id])
 		@quiz.questions << Question.create(params[:question].permit(:query))
-		redirect_to quiz_questions_path(@quiz)
+		redirect_to quiz_path(@quiz)
 		# redirect_to "/quizzes/#{@quiz.id}/questions" #enter index page route here.
 	end
 
